@@ -8,7 +8,7 @@ export default async (request, response) => {
   try {
     await doc.useServiceAccountAuth({
       client_email: process.env.SHEET_CLIENT_EMAIL,
-      private_key: process.env.SHEET_PRIVATE_KEY
+      private_key: fromBase64(process.env.SHEET_PRIVATE_KEY)
     })
     await doc.loadInfo()
 
